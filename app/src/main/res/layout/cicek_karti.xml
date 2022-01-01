@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -33,14 +34,16 @@
                 android:maxLines="1"
                 android:text="Çiçek Adı"
                 android:textColor="@color/baslik"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/cardComment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="3"
-                android:text="Çiçek Açıklama" />
+                android:text="Çiçek Açıklama"
+                tools:ignore="MissingPrefix" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
