@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.cicek_karti.view.*
 class MainActivity : AppCompatActivity() {
 
     var List=ArrayList<Cicekler>()
+    var listAciklama=ArrayList<String>()
     //listview kullanıyorsak , adapter kullanmamız gerekir.
     var adapter : CiceklerAdapter?=null
 
@@ -23,7 +24,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        List.add(Cicekler("Gül","Açıklama",R.drawable.gul))
+        listAciklama.add("Sevdiklerinizi mutlu etmek için birden farklı yol ve hediye seçeneği vardır." +
+                " Bazı hediyeler ise her zaman klasikler arasında yer alır." +
+                " Güller ve çiçekler herkes için bu klasiklerin başında yer alır.")
+
+
+        //string.xml'den veri çekmek için --> getApplicationContext().getString(R.string.gül)
+        List.add(Cicekler("Gül",getApplicationContext().getString(R.string.gül),R.drawable.gul))
         List.add(Cicekler("Kasımpatı","Açıklama",R.drawable.kasimpati))
         List.add(Cicekler("Lale","Açıklama",R.drawable.lale))
         List.add(Cicekler("Menekşe","Açıklama",R.drawable.menekse))

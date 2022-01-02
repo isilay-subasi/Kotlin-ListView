@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CicekBahcesi</string>
+    <string name="gül">
+        Sevdiklerinizi mutlu etmek için birden farklı yol ve hediye seçeneği vardır.
+        Bazı hediyeler ise her zaman klasikler arasında yer alır.
+        Güller ve çiçekler herkes için bu klasiklerin başında yer alır.
+    </string>
+
+
 </resources>
