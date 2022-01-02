@@ -1,5 +1,6 @@
 package com.example.cicekbahcesi
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,8 +32,13 @@ class MainActivity : AppCompatActivity() {
         List.add(Cicekler("Ortanca","Açıklama",R.drawable.ortanca))
         List.add(Cicekler("Papatya","Açıklama",R.drawable.papatya))
 
+
+
+
+        //listede sıralamak için adapteri verdik.
         adapter = CiceklerAdapter(List,this)
         listView.adapter=adapter
+
 
 
 
@@ -71,15 +77,30 @@ class MainActivity : AppCompatActivity() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             //Amacım cicek_karti.xml sayfasına ulaşmak ve burdaki isim,açıklama,resime erişmek
 
+
+            // Ana activitede sıralamak için kullanılır.
             var posCicekler= list[p0]
-           var inflator= context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            var inflator= context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var cicekKarti=inflator.inflate(R.layout.cicek_karti,null)
             cicekKarti.cardName.text=posCicekler.name
             cicekKarti.cardComment.text=posCicekler.comment
             cicekKarti.cardImage.setImageResource(posCicekler.image!!)
+
+            //Resime tıklayınca başka sayfaya geçmeyi sağlayan kısım
+            cicekKarti.cardImage.setOnClickListener {
+
+                var intent=Intent(context,Cicekler_detay::class.java)
+                intent.putExtra("Adi",posCicekler.name)
+                intent.putExtra("Aciklama",posCicekler.comment)
+                intent.putExtra("Resim",posCicekler.image)
+                context!!.startActivity(intent)
+
+            }
+
+
+
+
             return cicekKarti
-
-
         }
 
     }
